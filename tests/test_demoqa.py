@@ -21,10 +21,8 @@ def test_demoqa_complete_form():
     browser.element('#state').perform(command.js.scroll_into_view).click()
     browser.element('#react-select-3-input').type('NCR').press_enter()
     browser.element('#city').click()
-    browser.element('#react-select-4-input').type('Delhi').press_tab().press_enter()
-    # browser.element('#submit').click()
-    # browser.element('#submit').hover().click()
-    # browser.element('#submit').perform(command.js.scroll_into_view).click()
+    browser.element('#react-select-4-input').type('Delhi').press_enter()
+    browser.element('#submit').click()
 
     browser.element('.table-responsive').all('td:nth-of-type(2)').should(have.texts(
         'FirstName LastName',
@@ -37,7 +35,3 @@ def test_demoqa_complete_form():
         'sample.jpg',
         'My current address',
         'NCR Delhi'))
-
-    browser.quit()
-
-    ...
