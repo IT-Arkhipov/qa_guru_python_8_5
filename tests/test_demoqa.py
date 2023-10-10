@@ -1,3 +1,4 @@
+import os
 from selene import browser, have, command
 
 
@@ -15,6 +16,7 @@ def test_demoqa_complete_form():
     browser.element('.react-datepicker__day--025').click()
     browser.element('#subjectsInput').type('Maths').press_enter()
     browser.element('[for="hobbies-checkbox-2"]').click()
+    browser.element('#uploadPicture').send_keys(os.path.abspath('img/sample.jpg'))
     browser.element('#currentAddress').type('My current address')
     browser.element('#state').perform(command.js.scroll_into_view).click()
     browser.element('#react-select-3-input').type('NCR').press_enter()
@@ -32,7 +34,7 @@ def test_demoqa_complete_form():
         '23 June,1985',
         'Maths',
         'Reading',
-        '',
+        'sample.jpg',
         'My current address',
         'NCR Delhi'))
 
